@@ -5,20 +5,30 @@ function Counter() {
   const [counter, setCounter] = useState(0);
   const handleMinClick = () => {
     setCounter(counter - 1);
-    if (counter <= 0) {
-      setCounter(0);
-    }
     console.log(counter);
   };
+
+  const handleResetClick = () => {
+    setCounter(0);
+  };
+
   const handlePlusClick = () => {
     setCounter(counter + 1);
     console.log(counter);
   };
   return (
-    <div className="flex justify-center gap-4">
-      <Button btn={"-"} onClick={handleMinClick} />
-      <h1 className="self-center">{counter}</h1>
-      <Button btn={"+"} onClick={handlePlusClick} />
+    <div className="hero min-h-screen bg-base-200">
+      <div className="hero-content text-center">
+        <div className="max-w-md">
+          <h1 className="font-bold text-6xl my-12">Counter</h1>
+          <h1 className="font-bold text-5xl my-12">{counter}</h1>
+          <div className="btn-group gap-8">
+            <Button btn={"Decrease"} onClick={handleMinClick} />
+            <Button btn={"Reset"} onClick={handleResetClick} />
+            <Button btn={"Increase"} onClick={handlePlusClick} />
+          </div>
+        </div>
+      </div>
     </div>
   );
 }
